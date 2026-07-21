@@ -1,0 +1,26 @@
+Project Title: Digitron - Enterprise CRM & Workforce Management Desktop Application
+
+=========================================
+1. Normal User Perspective (App Overview)
+=========================================
+Digitron is a powerful, enterprise-grade desktop CRM designed to streamline company operations, team performance, and client management. Built for Windows, macOS, and Linux, it serves as a central hub for managers and employees to track daily workflows, attendance, and sales pipelines in real-time.
+
+Key Features for Users:
+* Centralized Dashboard: A real-time 'Operations snapshot' provides live counts of active clients, active projects, upcoming meetings, and role requests [cite: 2_5.jpeg]. It also features live tracking of 'Idle employees' [cite: 2_5.jpeg].
+* Advanced Attendance System: Employees and managers can view a comprehensive, color-coded attendance calendar (Present, Half Day, Absent, Weekend Off) [cite: 3_5.jpeg]. The system automatically records login times and tracks exact idle durations (e.g., '1h 9m idle') [cite: 3_5.jpeg].
+* Client & Account Management: A dedicated 'Clients' module allows users to manage accounts converted from won leads, complete with location data, assigned CMOs, and team access controls [cite: 4_5.jpeg].
+* Sales & Team Performance: Managers can monitor team statistics like 'Total Wins' and 'Active Pipeline' [cite: 5_6.jpeg]. It includes a detailed 'Dialer Performance' leaderboard tracking scheduled, transferred, and won deals [cite: 5_6.jpeg].
+* Complete Employee Directory: An 'Employees' section to manage departments (Sales, Marketing, Development) and roles [cite: 6_3.jpeg]. Administrators can view performance, edit details, deactivate users, or reset passwords directly from this panel [cite: 6_3.jpeg].
+
+=========================================
+2. Developer Perspective (Technical Details)
+=========================================
+Project Overview: 
+An incredibly massive, solo-developed enterprise CRM application built entirely from the ground up, containing over 150,000 lines of code. The application handles complex data relationships, real-time syncing, and advanced workforce monitoring across all major desktop operating systems.
+
+Technical Implementation:
+* Cross-Platform Desktop Engineering: Developed a unified, high-performance desktop application targeting Windows, Linux, and macOS using a single Flutter codebase. 
+* Massive Scale & Architecture: Architected, designed, and implemented over 150k lines of code as a solo developer, ensuring scalable folder structures, clean code practices, and robust state management for a heavily data-driven application.
+* Backend Infrastructure (Supabase): Fully integrated Supabase as the backend engine to handle complex relational databases, secure user authentication, and real-time updates for modules like live idle tracking and attendance monitoring.
+* Complex UI/UX Implementation: Designed and coded a premium, highly detailed dark-themed interface. Implemented a comprehensive sidebar navigation system granting quick access to Leads, Projects, Tasks, Meetings, and Settings [cite: 2_5.jpeg, 6_3.jpeg].
+* Role-Based Access Control (RBAC): Built a secure, multi-tier access system ensuring that users (like 'General Manager' or 'Sales Dialer') only interact with data and controls relevant to their specific clearance levels [cite: 5_6.jpeg, 6_3.jpeg].

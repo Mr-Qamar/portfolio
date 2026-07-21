@@ -1,0 +1,67 @@
+name: my_portfolio
+description: Qamar Zaman - Flutter Developer Portfolio
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^6.2.1
+  url_launcher: ^6.3.1
+  font_awesome_flutter: ^10.8.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/my pic.webp
+    - assets/CAS LLM/1.webp
+    - assets/CAS LLM/2.webp
+    - assets/CAS LLM/3.webp
+    - assets/CAS LLM/4.webp
+    - assets/CAS LLM/5.webp
+    - assets/CAS LLM/6.webp
+    - assets/CAS LLM/7.webp
+    - assets/CAS LLM/8.webp
+    - assets/crm/1.webp
+    - assets/crm/2.webp
+    - assets/crm/3.webp
+    - assets/crm/4.webp
+    - assets/crm/5.webp
+    - assets/crm/6.webp
+    - assets/fitness coach app/1.webp
+    - assets/fitness coach app/2.webp
+    - assets/fitness coach app/3.webp
+    - assets/fitness coach app/4.webp
+    - assets/fitness coach app/5.webp
+    - assets/advocate associates/1.webp
+    - assets/advocate associates/2.webp
+    - assets/advocate associates/3.webp
+    - assets/advocate associates/4.webp
+    - assets/advocate associates/5.webp
+    - assets/advocate associates/6.webp
+    - assets/cas elms/1.webp
+    - assets/cas elms/2.webp
+    - assets/cas elms/3.webp
+    - assets/cas elms/4.webp
+    - assets/cas elms/5.webp
+    - assets/inviter/1.webp
+    - assets/inviter/2.webp
+    - assets/inviter/3.webp
+    - assets/inviter/4.webp
+    - assets/inviter/5.webp
+    - assets/inviter/6.webp
+    - assets/inviter/8.webp
+    - assets/medica/1.webp
+    - assets/medica/2.webp
+    - assets/medica/3.webp
+    - assets/medica/4.webp
+    - assets/medica/5.webp
+    - assets/medica/6.webp

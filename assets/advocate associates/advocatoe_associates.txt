@@ -1,0 +1,19 @@
+Project Title: Advocate Associates - Legal Consultation & Booking Platform
+
+Project Overview:
+Advocate Associates is a premium, full-stack appointment booking application tailored specifically for legal professionals and IEP advocates. The platform bridges the gap between clients seeking legal guidance and lawyers managing their consultation schedules. It features a robust dual-role system (Client and Admin/Lawyer), ensuring a customized and secure experience for all users.
+
+Key Features:
+* Secure Authentication: Seamless onboarding with Email/Password and integrated Google Sign-in functionality.
+* Interactive Client Dashboard: An intuitive interface for clients to explore services, view success metrics, and access quick actions like case inquiries.
+* Real-Time Appointment Scheduling: Clients can browse a dynamic calendar, view available versus booked time slots in real-time, and securely schedule their consultations.
+* Admin/Lawyer Portal: A dedicated, data-rich dashboard for the lawyer to monitor upcoming meetings, completed sessions, and track monthly progress.
+* Revenue Tracking & Analytics: Integrated graphical representations of collected revenue, dynamic earnings reports, and a detailed breakdown of paid meetings.
+* User Profile Management: A centralized hub for users to manage their personal details and track upcoming appointments.
+
+Technical Implementation (Developer's Perspective):
+
+* Frontend Development: Engineered a high-performance, cross-platform mobile application using Flutter, ensuring a native-like experience for both iOS and Android. Designed a highly customized, pixel-perfect dark-themed UI.
+* Backend Architecture (Firebase & Supabase): Designed and implemented a robust hybrid backend system. Utilized Supabase (PostgreSQL) for handling complex relational data (appointments, user roles, revenue tracking) and real-time calendar synchronization. Integrated Firebase for seamless user authentication (Google Sign-In & Email) and secure session management.
+* Role-Based Architecture: Implemented a secure routing system to handle dual user roles, dynamically rendering either the Client Booking Interface or the Admin Revenue Dashboard based on user credentials.
+* Payment Gateway Integration: Successfully integrated secure payment processing to handle consultation fees directly within the app, locking the calendar slot only upon successful transaction confirmation.

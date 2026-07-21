@@ -1,0 +1,26 @@
+Project Title: CAS - Comprehensive Learning Management System (LMS) & Institute ERP
+
+=========================================
+1. Normal User Perspective (App Overview)
+=========================================
+CAS is a massive, full-scale Learning Management System designed to digitize and manage an entire educational institute. From live online Zoom classes to complete student performance tracking, it brings everything under one roof.
+
+Key Features for Users:
+* Multi-Role Portals: Users can securely join the platform as either a "Teacher" to create and sell courses, or as a "Student" to learn [cite: 1_5.jpeg].
+* Comprehensive Student Dashboard: Students have a personalized hub showing their major (e.g., "Computer Science Year 3") and quick access to modules like "My Assignments", "IQ Test", "Workshop Tracker", and "Study Groups" [cite: 6_2.jpeg].
+* Interactive Learning & Quizzes: A gamified learning area ("Let's Learn Today") tracks the student's "Total Score" and offers specific language modules like "Java Programming", "Dart Language", and "Python Basics" with progress indicators [cite: 3_4.jpeg].
+* Assignment Management: Students can easily "Search assignments" and jump into tasks categorized by difficulty levels like "Beginner" [cite: 2_4.jpeg].
+* Attendance & Leave Tracking: Users can view a detailed, day-by-day attendance record marking them as "Present" or "Absent" [cite: 5_5.jpeg]. Additionally, they can track "Leave Requests" and monitor their status (e.g., "Pending" or "approved") [cite: 4_4.jpeg].
+* Virtual Classes: Fully integrated with Zoom to facilitate live online lectures and interactive sessions.
+
+=========================================
+2. Developer Perspective (Technical Details)
+=========================================
+Project Overview: 
+A large-scale, enterprise-grade mobile application acting as a complete ERP for educational institutes. 
+
+Technical Implementation:
+* Complex Role-Based Architecture: Engineered multiple distinct interfaces. The "Super Admin Dashboard" controls high-level modules like "Fee History", "Fee Defaulter", and "Student Management" [cite: 8_2.jpeg], while the Admin portal handles "Course Detail" and "Add Instructor" workflows [cite: 7.jpeg].
+* Third-Party API Integration: Successfully integrated the Zoom API to handle live video lectures, scheduling, and real-time virtual classroom sessions directly within the app environment.
+* State Management & Dynamic UIs: Handled complex, nested state management to ensure real-time updates across the app, such as instantly reflecting a leave request's approval status [cite: 4_4.jpeg] or updating the student's quiz points [cite: 3_4.jpeg].
+* Scalable Data Architecture: Designed a robust database schema to link students to their specific study groups, assignments, attendance logs, and fee payment portals seamlessly [cite: 5_5.jpeg, 7.jpeg].

@@ -1,0 +1,24 @@
+Project Title: AI Fitness Coach - Smart Workout & Health Tracker
+
+=========================================
+1. Normal User Perspective (App Overview)
+=========================================
+AI Fitness Coach is your ultimate personal pocket trainer, designed to help you stay active, healthy, and informed. Whether you are taking your first steps toward fitness or looking to maintain a strict workout regimen, this app provides everything you need in one sleek interface.
+
+Key Features for Users:
+* Smart Health Dashboard: Instantly track your daily progress including steps taken, total distance, estimated time, calories burned, and daily Heart Points.
+* Guided Workout Plans: Access structured routines like 'Belly Fit' and 'Leg & Lower Body' complete with time estimates and entry-level video warm-ups.
+* 24/7 AI Fitness Assistant: Got a question about your diet or need a quick workout tip? Chat with the integrated AI assistant anytime for personalized advice on nutrition, meal plans, and exercises.
+* Personalized Profile & Scheduling: Automatically calculate your BMI by updating your height and weight. Manage your weekly workout schedule and check off completed routines to stay motivated.
+
+=========================================
+2. Developer Perspective (Technical Details)
+=========================================
+Project Overview: 
+A feature-rich, full-stack cross-platform mobile application developed using Flutter. The app integrates real-time health metric tracking, a dynamic scheduling system, and Generative AI to provide an interactive fitness experience.
+
+Technical Implementation:
+* Frontend Development (Flutter): Engineered a highly responsive, modern, and vibrant user interface. Implemented complex custom UI components, including a custom floating bottom navigation bar with a prominent AI chat action button, and visually engaging progress cards.
+* Backend & Security (Firebase): Integrated Firebase for robust backend architecture. Utilized Firebase Authentication for secure user sign-in and session management. Leveraged Firebase Cloud Firestore/Realtime Database to instantly sync user health metrics, BMI calculations, and custom weekly schedules.
+* Artificial Intelligence Integration: Successfully integrated a Generative AI API (Large Language Model) to power the "Fitness Assistant." Designed the chat interface to handle real-time conversational streaming, context-aware fitness advice, and intelligent prompt handling.
+* State Management & Logic: Implemented modern state management to seamlessly handle dynamic data updates across the app—such as updating daily step counts, recalculating BMI on the fly, and toggling weekly schedule checkboxes without frame drops.

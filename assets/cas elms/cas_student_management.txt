@@ -1,0 +1,20 @@
+Project Title: CAS (Center for Advance Solution) - Student Management System
+
+Project Overview:
+CAS is a comprehensive, multi-tier educational and student management application designed to streamline the daily operations of an IT/Tech institute. The platform acts as a centralized hub for students, administrators, and super-admins to manage academic progress, financial records, and cohort activities. It eliminates manual administrative bottlenecks by digitizing leave requests, fee tracking, and online class integrations.
+
+Key Features:
+* Multi-Role Access Control: Features an interactive and visually engaging "Drag to choose role" onboarding screen supporting Super Admin, Admin, and Student logins.
+* Cohort & Mentorship Management: Students are organized into specific learning groups (e.g., Group A15) with dedicated mentors assigned to track their progress and provide guidance.
+* Comprehensive Leave Management: A built-in portal for students to apply for leaves, view leave history ("My Leaves"), specify durations, and link requests to their respective groups.
+* Fee & Financial Tracking: Integrated modules for monitoring fee structures, tracking pending payments, and processing "Fee Concession" requests directly through the app.
+* Performance & Success Showcase: A dedicated "Success Stories" section to highlight top-performing students and alumni, boosting morale and showcasing institute achievements.
+* Virtual Learning Integration: Features a "Join Meeting" option for seamless access to online classes, alongside tracking toggles for attendance or session monitoring.
+* Public Directory & Courses: Allows prospective users to browse available courses and easily contact the institute directly from the welcome screen.
+
+Technical Implementation (Developer's Perspective):
+
+* Frontend Development (Flutter): Engineered a responsive and highly interactive UI. Implemented complex custom widgets, such as the draggable role-selection cards, and smooth navigation drawers for deep linking into profile and management screens.
+* State Management & Role-Based Routing: Designed a secure and dynamic routing architecture that completely reconfigures the UI and available features based on the authenticated user's role (Super Admin vs. Student).
+* Form Handling & Validation: Developed robust form handling for the Leave Application and Fee Concession modules, ensuring clean data collection (dates, dropdowns, text inputs) before transmitting to the backend.
+* API/Database Integration: Synchronized complex relational data structures (Students linked to Groups, Groups linked to Mentors) ensuring the dashboard instantly reflects accurate, user-specific information upon login.

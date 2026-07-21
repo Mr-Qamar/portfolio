@@ -1,0 +1,26 @@
+Project Title: Invitor - Digital Invitation Maker & Event Manager
+
+=========================================
+1. Normal User Perspective (App Overview)
+=========================================
+Invitor is a beautifully crafted, animation-rich application designed to make event planning effortless. Whether you are hosting a wedding, engagement, or birthday, Invitor lets you create, manage, and share stunning digital invitations in just a few taps. Available now on the Google Play Store!
+
+Key Features for Users:
+* Diverse Categories: Easily navigate through event types like the "Wedding Category" and "Birthday Category" to find the perfect starting point [cite: 1_4.jpeg].
+* Elegant Templates: Browse and select from a wide variety of premium, ready-made templates for events like engagements and weddings [cite: 4_3.jpeg].
+* Quick Customization: Effortlessly fill in your event details through a user-friendly form, including fields for names, venue, RSVP, date, and time [cite: 2_3.jpeg].
+* Smart Dashboard & Views: Manage all your created invitations in one place. Switch between a clean "Standard View" or a visual "Pics & Flicks View" [cite: 8.jpeg].
+* Easy Sharing: Quickly view, share your invites with guests, or delete outdated cards directly from your management dashboard [cite: 8.jpeg].
+
+=========================================
+2. Developer Perspective (Technical Details)
+=========================================
+Project Overview: 
+A highly interactive, visually appealing cross-platform application built with Flutter. The app's standout feature is its heavy reliance on complex, smooth animations that enhance the user experience, successfully deployed and available on the Google Play Store.
+
+Technical Implementation:
+* Advanced UI/UX & Animations: Engineered a completely custom user interface featuring unique curved containers, a custom-painted bottom navigation bar, and fluid micro-interactions. The app is heavily optimized to maintain high frame rates (60fps) despite being full of complex Flutter animations.
+* Dynamic Data Binding: Implemented robust logic to take user inputs (like dynamic names, dates, and venues) [cite: 2_3.jpeg] and instantly render them onto varied, high-resolution visual templates [cite: 5_4.jpeg].
+* State Management & Layouts: Utilized efficient state management to handle multiple views (e.g., toggling between "Standard View" and "Pics & Flicks View") [cite: 8.jpeg] without performance degradation.
+* Local Storage & File Management: Developed a system to generate, save, and retrieve created digital cards, allowing users to view metadata like "Vid/Img" status, creation time, and exact categories [cite: 6.jpeg].
+* Production & Deployment: Successfully built, signed, and published the application on the Google Play Store, adhering to all app store guidelines and device compatibility requirements.

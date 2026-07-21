@@ -1,0 +1,28 @@
+Project Title: Medica - E-Pharmacy & Telehealth Consultation App
+
+=========================================
+1. Normal User Perspective (App Overview)
+=========================================
+Medica is a comprehensive healthcare application built around the promise of "Your Health, Our Priority" [cite: 1_7.jpeg]. It seamlessly combines a digital pharmacy with a doctor consultation platform, offering a one-stop solution for medical needs.
+
+Key Features for Users:
+* Doorstep Delivery: The app allows users to easily get medications delivered right to their doorstep [cite: 2_6.jpeg].
+* Medicine Browsing: Users can explore medicines through categorized filters like "Analgesics" and "Antipyretics" [cite: 3_6.jpeg]. Product listings show clear pricing, such as Gofen for $30 and Panadol Extra for $20 [cite: 3_6.jpeg].
+* Detailed Drug Information: Dedicated product pages provide extensive descriptions, like explaining that Ponstan is an NSAID used to relieve mild to moderate pain [cite: 4_6.jpeg].
+* Integrated Cart System: A fully functional cart allows users to adjust item quantities, clear the cart, view the total price, and "Proceed To Checkout" [cite: 6_4.jpeg].
+* Doctor Consultations: Users can discover specialists available for consultation, including Cardiologists, Dermatologists, and Pediatricians [cite: 4_6.jpeg]. 
+* Detailed Doctor Profiles: Profiles display crucial information like the doctor's contact number, email, clinic location, timings (e.g., Mon-Fri: 9 AM - 5 PM), and their exact consultancy fees [cite: 5_7.jpeg]. 
+* Easy Booking & Contact: Patients can directly "Book Consultation" through the app or choose to "Chat with Doctor on WhatsApp" [cite: 5_7.jpeg].
+
+=========================================
+2. Developer Perspective (Technical Details)
+=========================================
+Project Overview: 
+A dual-purpose healthcare application featuring both a robust e-commerce architecture for medical supplies and a scheduling/communication platform for telehealth services. 
+
+Technical Implementation:
+* E-Commerce & State Management: Developed a complete shopping cart system handling dynamic state updates for product quantities, price calculations, and checkout routing [cite: 6_4.jpeg].
+* Categorized Data Display: Implemented horizontally scrollable category chips ("All", "Analgesics") that dynamically filter the vertical product lists below [cite: 3_6.jpeg].
+* Telehealth Integration: Engineered a doctor directory mapping complex user data (specialization, clinic timings, fees) to detailed profile views [cite: 5_7.jpeg].
+* Deep Linking & External App Routing: Integrated direct "Chat with Doctor on WhatsApp" functionality, requiring seamless URL launching and intent handling to bridge the app with external messaging services [cite: 5_7.jpeg].
+* UI/UX Design: Crafted a clean, trustworthy user interface utilizing a calming green color palette, custom iconography, and a bottom navigation bar with a dynamic notification badge for the cart [cite: 1_7.jpeg, 3_6.jpeg].
