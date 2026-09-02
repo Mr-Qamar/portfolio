@@ -11,7 +11,8 @@ dependencies:
     sdk: flutter
   google_fonts: ^6.2.1
   url_launcher: ^6.3.1
-  font_awesome_flutter: ^10.8.0
+  font_awesome_flutter: ^11.0.0
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:
@@ -65,3 +66,24 @@ flutter:
     - assets/medica/4.webp
     - assets/medica/5.webp
     - assets/medica/6.webp
+    - assets/nv_rentals/1.png
+    - assets/nv_rentals/2.png
+    - assets/nv_rentals/3.png
+    - assets/nv_rentals/4.png
+    - assets/nv_rentals/5.png
+    - assets/nv_rentals/6.png
+    - assets/nv_rentals/7.png
+    - assets/nv_rentals/8.png
+    - assets/nv_rentals/9.png
+    - assets/rm_roofing/1.png
+    - assets/rm_roofing/2.png
+    - assets/rm_roofing/3.png
+    - assets/rm_roofing/4.png
+    - assets/rm_roofing/5.png
+    - assets/rm_roofing/6.png
+    - assets/rm_roofing/7.png
+    - assets/rm_roofing/8.png
+    - assets/yelp_leads_finder/1.jpg
+    - assets/yelp_leads_finder/2.jpg
+    - assets/yelp_leads_finder/3.jpg
+    - assets/yelp_leads_finder/4.jpg

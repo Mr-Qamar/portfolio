@@ -28,7 +28,7 @@ class ProjectsSection extends StatelessWidget {
                 label: 'Portfolio',
                 title: 'Featured Projects',
                 subtitle:
-                    'Real apps built for Android, iOS, Desktop & Web — each solving a specific business need.',
+                    'Real apps and Chrome extensions for Android, iOS, Desktop & Web — each solving a specific business need.',
               ),
               const SizedBox(height: 40),
 

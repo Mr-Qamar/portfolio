@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../data/portfolio_data.dart';
 import '../theme/app_theme.dart';
 import '../utils/url_helper.dart';
@@ -51,9 +52,11 @@ class _HeroSectionState extends State<HeroSection> {
               ),
             ),
             child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: isWide ? 40 : 24,
-                vertical: isWide ? 60 : 40,
+              padding: EdgeInsets.fromLTRB(
+                isWide ? 40 : 20,
+                isWide ? 120 : 100,
+                isWide ? 40 : 20,
+                isWide ? 72 : 48,
               ),
               child: Center(
                 child: ConstrainedBox(
@@ -89,7 +92,9 @@ class _HeroSectionState extends State<HeroSection> {
                                   const SizedBox(height: 24),
                                   Text(
                                     'Hi, I\'m ${profile.name}',
-                                    style: Theme.of(context).textTheme.displayLarge,
+                                    style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                                          fontSize: isWide ? 48 : 32,
+                                        ),
                                   ),
                                   const SizedBox(height: 8),
                                   ShaderMask(
@@ -123,9 +128,14 @@ class _HeroSectionState extends State<HeroSection> {
                                         label: const Text('Contact Me'),
                                       ),
                                       OutlinedButton.icon(
+                                        onPressed: () => openUrl(PortfolioData.contact.github),
+                                        icon: const FaIcon(FontAwesomeIcons.github, size: 16),
+                                        label: const Text('GitHub'),
+                                      ),
+                                      OutlinedButton.icon(
                                         onPressed: () => openUrl(PortfolioData.contact.linkedin),
                                         icon: const Icon(Icons.work_outline, size: 18),
-                                        label: const Text('View LinkedIn'),
+                                        label: const Text('LinkedIn'),
                                       ),
                                     ],
                                   ),
@@ -139,13 +149,14 @@ class _HeroSectionState extends State<HeroSection> {
                                         label: 'Years Experience',
                                       ),
                                       const _StatBadge(
-                                        value: '15+',
+                                        value: '20+',
                                         label: 'Projects Built',
                                       ),
                                       const _StatBadge(
-                                        value: '6',
+                                        value: '7',
                                         label: 'Platforms',
-                                        subtitle: 'Android · iOS · Web · Windows · macOS · Linux',
+                                        subtitle:
+                                            'Android · iOS · Web · Windows · macOS · Linux · Chrome Extension',
                                       ),
                                     ],
                                   ),
@@ -182,7 +193,9 @@ class _HeroSectionState extends State<HeroSection> {
                             Text(
                               'Hi, I\'m ${profile.name}',
                               textAlign: TextAlign.center,
-                              style: Theme.of(context).textTheme.displayLarge,
+                              style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                                    fontSize: MediaQuery.sizeOf(context).width < 400 ? 28 : 34,
+                                  ),
                             ),
                             const SizedBox(height: 8),
                             ShaderMask(
@@ -219,9 +232,14 @@ class _HeroSectionState extends State<HeroSection> {
                                   label: const Text('Contact Me'),
                                 ),
                                 OutlinedButton.icon(
+                                  onPressed: () => openUrl(PortfolioData.contact.github),
+                                  icon: const FaIcon(FontAwesomeIcons.github, size: 16),
+                                  label: const Text('GitHub'),
+                                ),
+                                OutlinedButton.icon(
                                   onPressed: () => openUrl(PortfolioData.contact.linkedin),
                                   icon: const Icon(Icons.work_outline, size: 18),
-                                  label: const Text('View LinkedIn'),
+                                  label: const Text('LinkedIn'),
                                 ),
                               ],
                             ),
@@ -236,13 +254,14 @@ class _HeroSectionState extends State<HeroSection> {
                                   label: 'Years Experience',
                                 ),
                                 const _StatBadge(
-                                  value: '15+',
+                                  value: '20+',
                                   label: 'Projects Built',
                                 ),
                                 const _StatBadge(
-                                  value: '6',
+                                  value: '7',
                                   label: 'Platforms',
-                                  subtitle: 'Android · iOS · Web · Windows · macOS · Linux',
+                                  subtitle:
+                                      'Android · iOS · Web · Windows · macOS · Linux · Chrome Extension',
                                 ),
                               ],
                             ),
@@ -296,14 +315,38 @@ class _StatBadge extends StatelessWidget {
   }
 }
 
-class _ProfileAvatar extends StatelessWidget {
+class _ProfileAvatar extends StatefulWidget {
   const _ProfileAvatar({required this.isWide});
 
   final bool isWide;
 
   @override
+  State<_ProfileAvatar> createState() => _ProfileAvatarState();
+}
+
+class _ProfileAvatarState extends State<_ProfileAvatar>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _float;
+
+  @override
+  void initState() {
+    super.initState();
+    _float = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 3800),
+    )..repeat(reverse: true);
+  }
+
+  @override
+  void dispose() {
+    _float.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final profile = PortfolioData.profile;
+    final isWide = widget.isWide;
     final size = isWide ? 320.0 : 220.0;
     final ringSize = size + 8;
 
@@ -334,7 +377,13 @@ class _ProfileAvatar extends StatelessWidget {
       photo = _initialsAvatar(size);
     }
 
-    return Stack(
+    return AnimatedBuilder(
+      animation: _float,
+      builder: (context, child) {
+        final dy = Curves.easeInOut.transform(_float.value) * 12 - 6;
+        return Transform.translate(offset: Offset(0, dy), child: child);
+      },
+      child: Stack(
       alignment: Alignment.center,
       children: [
         // Outer glow ring
@@ -356,9 +405,9 @@ class _ProfileAvatar extends StatelessWidget {
         Container(
           width: ringSize,
           height: ringSize,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
-            gradient: const LinearGradient(
+            gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [AppTheme.primary, AppTheme.accent],
@@ -380,6 +429,7 @@ class _ProfileAvatar extends StatelessWidget {
           ),
         ),
       ],
+      ),
     );
   }
 

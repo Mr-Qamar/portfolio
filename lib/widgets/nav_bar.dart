@@ -124,11 +124,11 @@ class _NavBarState extends State<NavBar> {
                   (item) {
                     final isActive = item.$2 == widget.activeSection;
                     return Padding(
-                      padding: const EdgeInsets.only(left: 12),
+                      padding: const EdgeInsets.only(left: 4),
                       child: TextButton(
                         onPressed: () => _scrollTo(item.$2),
                         style: TextButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                           foregroundColor: isActive ? AppTheme.primary : AppTheme.textSecondary,
                         ),
                         child: Column(

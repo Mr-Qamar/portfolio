@@ -86,6 +86,15 @@ class ContactInfo {
   final String linkedin;
   final String github;
   final String whatsapp;
+
+  String get githubUsername {
+    final segments = Uri.tryParse(github)
+            ?.pathSegments
+            .where((segment) => segment.isNotEmpty)
+            .toList() ??
+        const <String>[];
+    return segments.isEmpty ? '' : segments.first;
+  }
 }
 
 class PortfolioProfile {

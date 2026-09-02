@@ -81,36 +81,36 @@ class ContactSection extends StatelessWidget {
                       child: Column(
                         children: [
                           _ContactTile(
-                            icon: Icons.email_outlined,
+                            icon: const Icon(Icons.email_outlined),
                             label: 'Email',
                             value: contact.email,
                             onTap: () => openEmail(contact.email),
                           ),
                           _ContactTile(
-                            icon: Icons.phone_outlined,
+                            icon: const Icon(Icons.phone_outlined),
                             label: 'Phone',
                             value: contact.phone,
                             onTap: () => openPhone(context, contact.phone),
                           ),
                           _ContactTile(
-                            icon: Icons.location_on_outlined,
+                            icon: const Icon(Icons.location_on_outlined),
                             label: 'Location',
                             value: contact.location,
                           ),
                           _ContactTile(
-                            icon: FontAwesomeIcons.linkedin,
+                            icon: const FaIcon(FontAwesomeIcons.linkedin),
                             label: 'LinkedIn',
                             value: 'Connect on LinkedIn',
                             onTap: () => openUrl(contact.linkedin),
                           ),
                           _ContactTile(
-                            icon: FontAwesomeIcons.github,
+                            icon: const FaIcon(FontAwesomeIcons.github),
                             label: 'GitHub',
                             value: 'View my code',
                             onTap: () => openUrl(contact.github),
                           ),
                           _ContactTile(
-                            icon: FontAwesomeIcons.whatsapp,
+                            icon: const FaIcon(FontAwesomeIcons.whatsapp),
                             label: 'WhatsApp',
                             value: 'Chat on WhatsApp',
                             onTap: () => openUrl(contact.whatsapp),
@@ -166,36 +166,36 @@ class ContactSection extends StatelessWidget {
                     Column(
                       children: [
                         _ContactTile(
-                          icon: Icons.email_outlined,
+                          icon: const Icon(Icons.email_outlined),
                           label: 'Email',
                           value: contact.email,
                           onTap: () => openEmail(contact.email),
                         ),
                         _ContactTile(
-                          icon: Icons.phone_outlined,
+                          icon: const Icon(Icons.phone_outlined),
                           label: 'Phone',
                           value: contact.phone,
                           onTap: () => openPhone(context, contact.phone),
                         ),
                         _ContactTile(
-                          icon: Icons.location_on_outlined,
+                          icon: const Icon(Icons.location_on_outlined),
                           label: 'Location',
                           value: contact.location,
                         ),
                         _ContactTile(
-                          icon: FontAwesomeIcons.linkedin,
+                          icon: const FaIcon(FontAwesomeIcons.linkedin),
                           label: 'LinkedIn',
                           value: 'Connect on LinkedIn',
                           onTap: () => openUrl(contact.linkedin),
                         ),
                         _ContactTile(
-                          icon: FontAwesomeIcons.github,
+                          icon: const FaIcon(FontAwesomeIcons.github),
                           label: 'GitHub',
                           value: 'View my code',
                           onTap: () => openUrl(contact.github),
                         ),
                         _ContactTile(
-                          icon: FontAwesomeIcons.whatsapp,
+                          icon: const FaIcon(FontAwesomeIcons.whatsapp),
                           label: 'WhatsApp',
                           value: 'Chat on WhatsApp',
                           onTap: () => openUrl(contact.whatsapp),
@@ -222,7 +222,7 @@ class _ContactTile extends StatelessWidget {
     this.accentColor,
   });
 
-  final IconData icon;
+  final Widget icon;
   final String label;
   final String value;
   final VoidCallback? onTap;
@@ -254,7 +254,10 @@ class _ContactTile extends StatelessWidget {
                     color: color.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Icon(icon, color: color, size: 20),
+                  child: IconTheme(
+                    data: IconThemeData(color: color, size: 20),
+                    child: icon,
+                  ),
                 ),
                 const SizedBox(width: 16),
                 Expanded(

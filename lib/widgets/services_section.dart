@@ -14,6 +14,7 @@ class ServicesSection extends StatelessWidget {
       'build' => Icons.build_circle_outlined,
       'cloud' => Icons.cloud_outlined,
       'palette' => Icons.palette_outlined,
+      'extension' => Icons.extension_outlined,
       _ => Icons.star_outline,
     };
   }

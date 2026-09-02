@@ -26,7 +26,7 @@ class AboutSection extends StatelessWidget {
                 label: 'About Me',
                 title: 'Who I Am',
                 subtitle:
-                    'A mobile developer focused on shipping real-world products.',
+                    'I ship full products — the architecture, the UI, and the operations layer companies actually run on.',
               ),
               const SizedBox(height: 40),
               if (isWide)

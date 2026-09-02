@@ -4,6 +4,29 @@ import '../models/portfolio_models.dart';
 import '../theme/app_theme.dart';
 import '../utils/url_helper.dart';
 
+int _assetCacheWidth(BuildContext context, double logicalPx) {
+  return (logicalPx * MediaQuery.devicePixelRatioOf(context))
+      .round()
+      .clamp(240, 1800);
+}
+
+Widget _cachedAsset(
+  BuildContext context,
+  String path, {
+  required BoxFit fit,
+  required double logicalWidth,
+  FilterQuality quality = FilterQuality.medium,
+  Widget Function(BuildContext, Object, StackTrace?)? errorBuilder,
+}) {
+  return Image.asset(
+    path,
+    fit: fit,
+    cacheWidth: _assetCacheWidth(context, logicalWidth),
+    filterQuality: quality,
+    errorBuilder: errorBuilder,
+  );
+}
+
 // ─────────────────────────────────────────────
 // LIGHTBOX DIALOG (Elastic pop-up animation)
 // ─────────────────────────────────────────────
@@ -51,9 +74,12 @@ void _showProminentImage(BuildContext context, String imagePath, bool isMobile) 
                             ],
                           ),
                           clipBehavior: Clip.antiAlias,
-                          child: Image.asset(
+                          child: _cachedAsset(
+                            context,
                             imagePath,
                             fit: BoxFit.contain,
+                            logicalWidth: isMobile ? 720 : 1400,
+                            quality: FilterQuality.medium,
                           ),
                         ),
                         // Close button overlay
@@ -121,6 +147,7 @@ class FeaturedProjectCard extends StatefulWidget {
 
 class _FeaturedProjectCardState extends State<FeaturedProjectCard> {
   int _currentImageIndex = 0;
+  bool _hovered = false;
   late final PageController _pageController;
 
   @override
@@ -138,75 +165,99 @@ class _FeaturedProjectCardState extends State<FeaturedProjectCard> {
   @override
   Widget build(BuildContext context) {
     final project = widget.project;
-    final isWide = MediaQuery.sizeOf(context).width >= 800;
+    final isWide = MediaQuery.sizeOf(context).width >= 900;
+    final galleryHeight =
+        isWide ? 460.0 : (MediaQuery.sizeOf(context).width < 500 ? 220.0 : 280.0);
 
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            AppTheme.surfaceLight,
-            AppTheme.surface,
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: 0, end: 1),
+      duration: Duration(milliseconds: 420 + widget.index * 90),
+      curve: Curves.easeOutCubic,
+      builder: (context, t, child) {
+        return Opacity(
+          opacity: t,
+          child: Transform.translate(
+            offset: Offset(0, 16 * (1 - t)),
+            child: child,
+          ),
+        );
+      },
+      child: RepaintBoundary(
+        child: MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 220),
+        transformAlignment: Alignment.center,
+        transform: Matrix4.translationValues(0, _hovered ? -6 : 0, 0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          gradient: const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              AppTheme.surfaceLight,
+              AppTheme.surface,
+            ],
+          ),
+          border: Border.all(
+            color: AppTheme.primary.withValues(alpha: _hovered ? 0.55 : 0.25),
+            width: 1.5,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: AppTheme.primary.withValues(alpha: _hovered ? 0.18 : 0.08),
+              blurRadius: _hovered ? 32 : 24,
+              offset: const Offset(0, 8),
+            ),
           ],
         ),
-        border: Border.all(
-          color: AppTheme.primary.withValues(alpha: 0.25),
-          width: 1.5,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: AppTheme.primary.withValues(alpha: 0.08),
-            blurRadius: 24,
-            offset: const Offset(0, 8),
-          ),
-        ],
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: isWide
-          ? SizedBox(
-              height: 520,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+        clipBehavior: Clip.antiAlias,
+        child: isWide
+            ? Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
                     flex: 5,
-                    child: _ImageGallery(
-                      project: project,
-                      controller: _pageController,
-                      currentIndex: _currentImageIndex,
-                      onChanged: (i) => setState(() => _currentImageIndex = i),
+                    child: SizedBox(
+                      height: galleryHeight,
+                      child: _ImageGallery(
+                        project: project,
+                        controller: _pageController,
+                        currentIndex: _currentImageIndex,
+                        onChanged: (i) => setState(() => _currentImageIndex = i),
+                        height: galleryHeight,
+                      ),
                     ),
                   ),
                   Expanded(
                     flex: 6,
-                    child: SingleChildScrollView(
-                      child: _FeaturedCardContent(
-                        project: project,
-                        index: widget.index,
-                      ),
+                    child: _FeaturedCardContent(
+                      project: project,
+                      index: widget.index,
                     ),
                   ),
                 ],
+              )
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _ImageGallery(
+                    project: project,
+                    controller: _pageController,
+                    currentIndex: _currentImageIndex,
+                    onChanged: (i) => setState(() => _currentImageIndex = i),
+                    height: galleryHeight,
+                  ),
+                  _FeaturedCardContent(
+                    project: project,
+                    index: widget.index,
+                  ),
+                ],
               ),
-            )
-          : Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _ImageGallery(
-                  project: project,
-                  controller: _pageController,
-                  currentIndex: _currentImageIndex,
-                  onChanged: (i) => setState(() => _currentImageIndex = i),
-                  height: 240,
-                ),
-                _FeaturedCardContent(
-                  project: project,
-                  index: widget.index,
-                ),
-              ],
-            ),
+      ),
+        ),
+      ),
     );
   }
 }
@@ -232,7 +283,8 @@ class _ImageGallery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final images = project.imageAssets ?? [];
-    final isMobile = project.name != 'Digitron CRM';
+    final isMobile = project.name != 'Digitron CRM' &&
+        project.name != 'Yelp New Leads Finder';
 
     if (images.isEmpty) {
       return Container(
@@ -263,9 +315,12 @@ class _ImageGallery extends StatelessWidget {
                     fit: StackFit.expand,
                     children: [
                       // Blurred background to fill any aspect ratio elegantly
-                      Image.asset(
+                      _cachedAsset(
+                        context,
                         imagePath,
                         fit: BoxFit.cover,
+                        logicalWidth: 280,
+                        quality: FilterQuality.low,
                         errorBuilder: (_, __, ___) => const SizedBox.shrink(),
                       ),
                       ClipRect(
@@ -292,9 +347,12 @@ class _ImageGallery extends StatelessWidget {
                               ],
                             ),
                             clipBehavior: Clip.antiAlias,
-                            child: Image.asset(
+                            child: _cachedAsset(
+                              context,
                               imagePath,
                               fit: BoxFit.contain,
+                              logicalWidth: (height ?? 300) * 0.7,
+                              quality: FilterQuality.medium,
                               errorBuilder: (_, __, ___) => Container(
                                 color: AppTheme.surfaceLight,
                                 child: const Center(
@@ -440,18 +498,19 @@ class _FeaturedCardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final rankLabels = ['#1 Flagship Project', '#2 Enterprise App', '#3 AI-Powered App'];
+    final rankLabels = ['#1 Flagship Project', '#2 Mobility', '#3 Field Ops'];
     final rankColors = [AppTheme.primary, const Color(0xFFE9A840), const Color(0xFF7C3AED)];
     final rankColor = index < rankColors.length ? rankColors[index] : AppTheme.primary;
     final rankLabel = index < rankLabels.length ? rankLabels[index] : 'Featured';
 
     return Padding(
-      padding: const EdgeInsets.all(28),
+      padding: EdgeInsets.all(MediaQuery.sizeOf(context).width < 600 ? 18 : 28),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Rank + Category
-          Row(
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
             children: [
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
@@ -470,7 +529,6 @@ class _FeaturedCardContent extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 8),
               if (project.category != null)
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
@@ -511,7 +569,10 @@ class _FeaturedCardContent extends StatelessWidget {
           // Description
           Text(
             project.description,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(height: 1.6),
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  height: 1.65,
+                  color: AppTheme.textSecondary,
+                ),
           ),
           const SizedBox(height: 16),
 
@@ -635,6 +696,7 @@ class ProjectCard extends StatefulWidget {
 
 class _ProjectCardState extends State<ProjectCard> {
   int _currentImageIndex = 0;
+  bool _hovered = false;
   late final PageController _pageController;
 
   @override
@@ -653,10 +715,43 @@ class _ProjectCardState extends State<ProjectCard> {
   Widget build(BuildContext context) {
     final project = widget.project;
 
-    return Container(
-      decoration: AppTheme.gradientCard,
-      clipBehavior: Clip.antiAlias,
-      child: Column(
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: 0, end: 1),
+      duration: const Duration(milliseconds: 450),
+      curve: Curves.easeOutCubic,
+      builder: (context, t, child) {
+        return Opacity(
+          opacity: t,
+          child: Transform.translate(
+            offset: Offset(0, 14 * (1 - t)),
+            child: child,
+          ),
+        );
+      },
+      child: RepaintBoundary(
+        child: MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 220),
+        transformAlignment: Alignment.center,
+        transform: Matrix4.translationValues(0, _hovered ? -6 : 0, 0),
+        decoration: AppTheme.gradientCard.copyWith(
+          border: Border.all(
+            color: _hovered
+                ? AppTheme.primary.withValues(alpha: 0.45)
+                : AppTheme.border,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: AppTheme.primary.withValues(alpha: _hovered ? 0.14 : 0),
+              blurRadius: 22,
+              offset: const Offset(0, 10),
+            ),
+          ],
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Shared image gallery with pop-up/lightbox capability
@@ -704,9 +799,9 @@ class _ProjectCardState extends State<ProjectCard> {
                 const SizedBox(height: 12),
                 Text(
                   project.description,
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.bodyMedium,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        height: 1.65,
+                      ),
                 ),
                 if (project.role != null) ...[
                   const SizedBox(height: 10),
@@ -727,12 +822,10 @@ class _ProjectCardState extends State<ProjectCard> {
                         Expanded(
                           child: Text(
                             project.role!,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
                             style:
                                 Theme.of(context).textTheme.bodySmall?.copyWith(
-                                      fontSize: 11,
-                                      height: 1.4,
+                                      fontSize: 12,
+                                      height: 1.5,
                                     ),
                           ),
                         ),
@@ -757,12 +850,10 @@ class _ProjectCardState extends State<ProjectCard> {
                       Expanded(
                         child: Text(
                           project.problemSolved,
-                          maxLines: 3,
-                          overflow: TextOverflow.ellipsis,
                           style: Theme.of(context)
                               .textTheme
                               .bodySmall
-                              ?.copyWith(height: 1.4),
+                              ?.copyWith(height: 1.55, fontSize: 13),
                         ),
                       ),
                     ],
@@ -787,6 +878,9 @@ class _ProjectCardState extends State<ProjectCard> {
             ),
           ),
         ],
+      ),
+      ),
+        ),
       ),
     );
   }

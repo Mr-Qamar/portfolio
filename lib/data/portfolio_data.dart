@@ -5,19 +5,24 @@ class PortfolioData {
 
   static const profile = PortfolioProfile(
     name: 'Qamar Zaman',
-    title: 'Flutter Expert & Mobile Developer',
-    tagline: 'Building cross-platform apps that solve real business problems across 6 platforms',
+    title: 'Flutter Expert & Product Engineer',
+    tagline:
+        'I design, build, and ship complete products — mobile, desktop, web, and Chrome extensions — not just screens.',
     bio:
-        '4+ years of mobile development experience — 1 year Android, 3 years Flutter. '
-        'I design, build, and ship production apps for Android, iOS, Web, Windows, macOS, and Linux.',
+        '4+ years shipping production software: 1 year native Android, 3 years Flutter. '
+        'I take messy business workflows and turn them into one product teams actually use — '
+        'from a 150k-line desktop CRM built entirely solo, to field apps, store releases, and Chrome lead tools.',
     aboutParagraphs: [
-      'I am a passionate Flutter Expert specializing in cross-platform development. '
-          'Over the past 4 years, I have delivered apps across video conferencing, fitness, '
-          'booking, events, CRM, healthcare, and legal domains.',
-      'Beyond development, I handle end-to-end app publishing on Google Play Store and Apple App Store, '
-          'including store listings, compliance, updates, and ongoing maintenance.',
-      'Whether you need a custom business solution, a startup MVP, or a full-scale enterprise app — '
-          'I can build it for Android, iOS, Web, Windows, macOS, and Linux from a single Flutter codebase.',
+      'I am a Flutter expert who thinks like a product engineer. I do not hand off half-built modules — '
+          'I own architecture, UI/UX, backend, roles, publishing, and the details that make software usable at work. '
+          'Over 4 years I have shipped 20+ apps and tools across CRM, rentals, field services, education, fitness, '
+          'healthcare, legal, events, and Chrome extensions.',
+      'Digitron CRM is the clearest example: I built the entire enterprise desktop product alone — idle-time and '
+          'app-usage tracking, leads and meetings, employee and customer management, attendance, and operations — '
+          'so a company could run from one app instead of a pile of spreadsheets and chat threads.',
+      'I also publish to Google Play and the App Store, keep apps updated, and build Chrome extensions for live lead '
+          'generation. If you need an MVP, a field tool, or a full internal system for Android, iOS, Web, Windows, '
+          'macOS, Linux, or Chrome — I can take it from idea to something your team can log into tomorrow.',
     ],
     profileImageAsset: 'assets/my pic.webp',
     profileImageUrl: null,
@@ -31,7 +36,7 @@ class PortfolioData {
     phone: '+92 300 3939282',
     location: 'Pakistan',
     linkedin: 'https://www.linkedin.com/in/qamarzaman-dev1',
-    github: 'https://github.com/qamar-zaman',
+    github: 'https://github.com/Mr-Qamar',
     whatsapp: 'https://wa.me/923003939282',
   );
 
@@ -41,12 +46,12 @@ class PortfolioData {
       company: 'Freelance & Contract',
       period: '2022 – Present',
       description:
-          'Building and maintaining cross-platform mobile and web applications for clients worldwide.',
+          'I take client ideas and ship full products: Flutter apps, desktop CRM, and Chrome lead tools used in real operations.',
       highlights: [
-        'Delivered 7+ production apps across multiple industries',
+        'Delivered 20+ production apps and tools across multiple industries',
+        'Built Digitron CRM entirely solo — 150k+ lines covering workforce, CRM, and tracking',
         'Published apps on Google Play Store and Apple App Store',
-        'Integrated Firebase, Supabase, REST APIs, and real-time features',
-        'Built enterprise-grade applications with 150k+ lines of code',
+        'Shipped Chrome extensions with cloud sync, team workflows, and live dashboards',
       ],
     ),
     Experience(
@@ -67,13 +72,29 @@ class PortfolioData {
     Skill(name: 'Flutter', level: 0.95, category: 'Mobile'),
     Skill(name: 'Dart', level: 0.95, category: 'Languages'),
     Skill(name: 'Android', level: 0.80, category: 'Mobile'),
+    Skill(name: 'Clean Architecture', level: 0.90, category: 'Mobile'),
+    Skill(name: 'Riverpod', level: 0.88, category: 'Mobile'),
+    Skill(name: 'BLoC', level: 0.86, category: 'Mobile'),
+    Skill(name: 'Provider', level: 0.88, category: 'Mobile'),
+    Skill(name: 'Custom Animation', level: 0.85, category: 'Mobile'),
+    Skill(name: 'Clipper', level: 0.82, category: 'Mobile'),
+    Skill(name: 'ANN', level: 0.80, category: 'AI'),
+    Skill(name: 'CNN', level: 0.82, category: 'AI'),
+    Skill(name: 'YOLO', level: 0.78, category: 'AI'),
+    Skill(name: 'RNN', level: 0.76, category: 'AI'),
+    Skill(name: 'Transformers', level: 0.84, category: 'AI'),
+    Skill(name: 'LangChain', level: 0.82, category: 'LLM'),
+    Skill(name: 'LangGraph', level: 0.80, category: 'LLM'),
+    Skill(name: 'MCP Servers', level: 0.86, category: 'LLM'),
+    Skill(name: 'FastAPI', level: 0.82, category: 'Backend'),
     Skill(name: 'Firebase', level: 0.88, category: 'Backend'),
     Skill(name: 'Supabase', level: 0.82, category: 'Backend'),
     Skill(name: 'REST APIs', level: 0.90, category: 'Backend'),
     Skill(name: 'Java', level: 0.75, category: 'Languages'),
-    Skill(name: 'JavaScript', level: 0.70, category: 'Languages'),
-    Skill(name: 'Python', level: 0.65, category: 'Languages'),
+    Skill(name: 'JavaScript', level: 0.78, category: 'Languages'),
+    Skill(name: 'Python', level: 0.80, category: 'Languages'),
     Skill(name: 'C++', level: 0.60, category: 'Languages'),
+    Skill(name: 'Chrome Extensions', level: 0.86, category: 'Web'),
     Skill(name: 'Play Store Publishing', level: 0.92, category: 'DevOps'),
     Skill(name: 'App Store Publishing', level: 0.85, category: 'DevOps'),
     Skill(name: 'App Maintenance', level: 0.90, category: 'DevOps'),
@@ -89,17 +110,26 @@ class PortfolioData {
       tagline: 'Enterprise Workforce & Client Management Desktop App',
       category: 'Enterprise CRM',
       isFeatured: true,
-      role: 'Solo Developer — architected and wrote 150,000+ lines of code single-handedly. Designed all modules, UI/UX, RBAC system, and real-time backend integration.',
+      role:
+          'Solo developer — I designed, architected, and wrote the entire product (150,000+ lines) with no co-developer. Every module, the UI/UX, RBAC, and real-time backend are mine.',
       description:
-          'An incredibly massive, solo-built enterprise CRM for Windows, macOS, and Linux. '
-          'Features a real-time operations dashboard, color-coded attendance calendar, idle-time tracking, '
-          'full client/account management, sales pipeline, dialer performance leaderboards, and a '
-          'complete multi-department employee directory — all with role-based access control.',
+          'A full enterprise CRM and workforce platform for Windows, macOS, and Linux — built 100% by me. '
+          'It is not a thin dashboard: it runs day-to-day company operations. Idle-time and app-usage tracking, '
+          'leads and meetings, employee and customer records, attendance, sales pipeline, dialer leaderboards, '
+          'and a multi-department directory — all under role-based access with live sync.',
       problemSolved:
-          'Mid-to-large companies struggled with fragmented tools for CRM, attendance, and HR. '
-          'Digitron unifies all operations in one cross-platform desktop app with live data sync, '
-          'RBAC, and a premium dark-themed UI — built 100% solo with 150k+ LOC.',
-      techStack: ['Flutter Desktop', 'Dart', 'Supabase', 'PostgreSQL', 'RBAC', 'Real-Time Sync'],
+          'The business was split across chat, spreadsheets, and separate tools for CRM, HR, and monitoring. '
+          'I replaced that with one desktop product: managers see employees and customers, track who is idle vs working, '
+          'follow leads and meetings, and take attendance — without hiring a team of developers to build it.',
+      techStack: [
+        'Flutter Desktop',
+        'Dart',
+        'Supabase',
+        'PostgreSQL',
+        'Idle & Usage Tracking',
+        'RBAC',
+        'Real-Time Sync',
+      ],
       imageAssets: [
         'assets/crm/1.webp',
         'assets/crm/2.webp',
@@ -112,10 +142,109 @@ class PortfolioData {
 
     // ── #2 FEATURED ──────────────────────────────
     Project(
+      name: 'NV Car Rentals',
+      tagline: 'Dual-sided Cincinnati rental demo — customer booking plus NV Ops',
+      category: 'Mobility',
+      isFeatured: true,
+      role:
+          'Flutter Mobile Developer — end-to-end delivery with Riverpod and GoRouter: customer booking, admin / NV Ops panel, branded UI, on-device persistence, and TestFlight-ready iOS builds.',
+      description:
+          'A dual-sided Greater Cincinnati car-rental pitch demo. Customers browse the fleet, check availability, '
+          'and submit rental proposals; admins review proposals, manage cars and customers, and run operational tools. '
+          'Built as a fully walkable product story on a real phone — premium surfaces (payments, GPS, analytics) look live for pitching.',
+      problemSolved:
+          'The client needed to pitch a full rental product without live Stripe, GPS hardware, or a production backend. '
+          'NV Car Rentals delivers both customer and ops flows with local persistence so demos stay complete and reliable.',
+      techStack: [
+        'Flutter',
+        'Riverpod',
+        'GoRouter',
+        'SharedPreferences',
+        'iOS TestFlight',
+      ],
+      imageAssets: [
+        'assets/nv_rentals/2.png',
+        'assets/nv_rentals/3.png',
+        'assets/nv_rentals/4.png',
+        'assets/nv_rentals/5.png',
+        'assets/nv_rentals/6.png',
+        'assets/nv_rentals/7.png',
+        'assets/nv_rentals/8.png',
+        'assets/nv_rentals/9.png',
+        'assets/nv_rentals/1.png',
+      ],
+    ),
+
+    // ── #3 FEATURED ──────────────────────────────
+    Project(
+      name: 'R&M Roofing',
+      tagline: 'Estimate requests and crew quotes for a Minnesota roofing contractor',
+      category: 'Field Ops',
+      isFeatured: true,
+      role:
+          'End-to-end product engineer — customer and admin experiences, estimate wizard, auth, maps/geocoding, role-based access, and the Supabase data layer.',
+      description:
+          'A Flutter app for R&M Roofing and Exteriors (Blaine, MN) so homeowners can request roof estimates '
+          'and the crew can review leads and send quotes. Guest browsing, multi-step estimate wizard with map pin and GPS, '
+          'photo-backed jobs, and a live admin inbox with 1–3 line-item estimates.',
+      problemSolved:
+          'Intake was phone- and website-only, which slowed quoting. The app replaces that with a branded digital flow: '
+          'customers submit photo-backed requests; staff quote from a live inbox on a map.',
+      techStack: [
+        'Flutter',
+        'Supabase',
+        'Riverpod',
+        'go_router',
+        'OpenStreetMap',
+      ],
+      imageAssets: [
+        'assets/rm_roofing/1.png',
+        'assets/rm_roofing/2.png',
+        'assets/rm_roofing/3.png',
+        'assets/rm_roofing/4.png',
+        'assets/rm_roofing/5.png',
+        'assets/rm_roofing/6.png',
+        'assets/rm_roofing/7.png',
+        'assets/rm_roofing/8.png',
+      ],
+    ),
+
+    // ── REST OF PROJECTS ──────────────────────────
+    Project(
+      name: 'Yelp New Leads Finder',
+      tagline: 'Chrome extension for New-on-Yelp lead search, team sync, and CSV export',
+      category: 'Chrome Extension',
+      isFeatured: false,
+      role:
+          'Solo product engineer — popup automation, Finder dashboard, team Chrome-profile sync, photo-age verification, and filtered CSV/ZIP export.',
+      description:
+          'A production Chrome extension that finds new Yelp businesses and turns them into calling lists. '
+          'Operators pick 1 state, multi-state, or All USA, auto-select cities, filter “New on Yelp,” and run auto search. '
+          'The dashboard tracks 1,500+ leads across 51 states, Finder team IDs, called vs pending, photo verify, '
+          'and custom CSV export (single file or category folders).',
+      problemSolved:
+          'Lead gen was slow, manual, and stuck on one machine. The extension automates Yelp discovery, syncs leads '
+          'to a shared dashboard across Chrome profiles, and exports clean lists so a team can call without copy-paste.',
+      techStack: [
+        'Chrome Extension',
+        'JavaScript',
+        'Cloud Sync',
+        'Team Workflows',
+        'CSV / ZIP Export',
+      ],
+      imageAssets: [
+        'assets/yelp_leads_finder/1.jpg',
+        'assets/yelp_leads_finder/2.jpg',
+        'assets/yelp_leads_finder/3.jpg',
+        'assets/yelp_leads_finder/4.jpg',
+      ],
+    ),
+
+    Project(
       name: 'CAS – LMS & Institute ERP',
       tagline: 'Zoom-Integrated Learning Management System',
       category: 'Education & Enterprise',
-      isFeatured: true,
+      isFeatured: false,
       role: 'Solo Flutter Developer — end-to-end: architecture, UI/UX, Zoom API integration, state management, and scalable database design.',
       description:
           'A massive, full-scale enterprise Learning Management System designed to fully digitize an educational institute. '
@@ -138,12 +267,11 @@ class PortfolioData {
       ],
     ),
 
-    // ── #3 FEATURED ──────────────────────────────
     Project(
       name: 'AI Fitness Coach',
       tagline: 'Smart Workout & Health Tracker with AI Assistant',
       category: 'Health & Fitness',
-      isFeatured: true,
+      isFeatured: false,
       role: 'Full-Stack Flutter Developer — built complete frontend, Firebase backend integration, AI chat interface, and health metric tracking system.',
       description:
           'Your ultimate personal pocket trainer. Track daily steps, distance, calories, and Heart Points. '
@@ -272,8 +400,14 @@ class PortfolioData {
     Service(
       title: 'Cross-Platform App Development',
       description:
-          'Android, iOS, and Web apps from a single Flutter codebase — faster delivery, lower cost.',
+          'Android, iOS, Web, Desktop, and Chrome Extensions from a single Flutter codebase — faster delivery, lower cost.',
       iconName: 'devices',
+    ),
+    Service(
+      title: 'Chrome Extension Development',
+      description:
+          'Lead-generation and productivity extensions — search tools, dashboards, and Yelp-style products that ship in Chrome.',
+      iconName: 'extension',
     ),
     Service(
       title: 'Enterprise & CRM Solutions',
@@ -311,6 +445,7 @@ class PortfolioData {
     ('Home', 'home'),
     ('About', 'about'),
     ('Projects', 'projects'),
+    ('GitHub', 'github'),
     ('Skills', 'skills'),
     ('Services', 'services'),
     ('Contact', 'contact'),

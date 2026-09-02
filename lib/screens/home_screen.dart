@@ -1,12 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import '../theme/app_theme.dart';
 import '../widgets/about_section.dart';
 import '../widgets/contact_section.dart';
 import '../widgets/footer_section.dart';
+import '../widgets/github_activity_section.dart';
 import '../widgets/hero_section.dart';
 import '../widgets/nav_bar.dart';
 import '../widgets/projects_section.dart';
 import '../widgets/services_section.dart';
 import '../widgets/skills_section.dart';
+
+/// Cursor's Run button launches the focused file. This lets that work
+/// when `home_screen.dart` is open. Prefer `lib/main.dart` as the real entry.
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.light,
+    ),
+  );
+  runApp(
+    MaterialApp(
+      title: 'Qamar Zaman - Flutter Developer',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.darkTheme,
+      home: const HomeScreen(),
+    ),
+  );
+}
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -24,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
     'home': GlobalKey(),
     'about': GlobalKey(),
     'projects': GlobalKey(),
+    'github': GlobalKey(),
     'skills': GlobalKey(),
     'services': GlobalKey(),
     'contact': GlobalKey(),
@@ -115,6 +139,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   KeyedSubtree(
                     key: _sectionKeys['projects'],
                     child: const ProjectsSection(),
+                  ),
+                  KeyedSubtree(
+                    key: _sectionKeys['github'],
+                    child: const GithubActivitySection(),
                   ),
                   KeyedSubtree(
                     key: _sectionKeys['skills'],

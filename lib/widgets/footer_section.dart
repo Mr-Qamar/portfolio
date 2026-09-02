@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../data/portfolio_data.dart';
 import '../theme/app_theme.dart';
 import '../utils/url_helper.dart';
@@ -31,6 +32,24 @@ class FooterSection extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 16),
+              Wrap(
+                spacing: 12,
+                children: [
+                  IconButton(
+                    tooltip: 'GitHub',
+                    onPressed: () => openUrl(PortfolioData.contact.github),
+                    icon: const FaIcon(FontAwesomeIcons.github, size: 20),
+                    color: AppTheme.textPrimary,
+                  ),
+                  IconButton(
+                    tooltip: 'LinkedIn',
+                    onPressed: () => openUrl(PortfolioData.contact.linkedin),
+                    icon: const FaIcon(FontAwesomeIcons.linkedin, size: 20),
+                    color: AppTheme.textPrimary,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
               Text(
                 '© $year ${PortfolioData.profile.name}. All rights reserved.',
                 style: Theme.of(context).textTheme.bodySmall,
