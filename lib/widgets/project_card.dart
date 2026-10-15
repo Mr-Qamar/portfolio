@@ -904,8 +904,11 @@ class _ProjectLinks extends StatelessWidget {
     if (project.appStoreUrl != null) {
       links.add((label: 'App Store', url: project.appStoreUrl!, icon: Icons.apple));
     }
+    if (project.microsoftStoreUrl != null) {
+      links.add((label: 'Microsoft Store', url: project.microsoftStoreUrl!, icon: Icons.desktop_windows_outlined));
+    }
     if (project.webUrl != null) {
-      links.add((label: 'Live Demo', url: project.webUrl!, icon: Icons.language));
+      links.add((label: 'Website', url: project.webUrl!, icon: Icons.language));
     }
     if (project.githubUrl != null) {
       links.add((label: 'GitHub', url: project.githubUrl!, icon: Icons.code));

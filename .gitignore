@@ -44,3 +44,7 @@ app.*.map.json
 .firebase/
 firebase-debug.log
 firebase-debug.*.log
+
+# Local notes / credentials — do not publish
+assets/nv_rentals/info.txt
+assets/rm_roofing/myfile.txt

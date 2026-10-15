@@ -9,13 +9,14 @@ class PortfolioData {
     tagline:
         'I design, build, and ship complete products — mobile, desktop, web, and Chrome extensions — not just screens.',
     bio:
-        '4+ years shipping production software: 1 year native Android, 3 years Flutter. '
+        '2.5+ years shipping production software: Android at CAS (Jun–Nov 2023), Flutter at CAS (Nov 2023–May 2024), '
+        'and remote Flutter at Digitron LLC (Jun 2024–Present). '
         'I take messy business workflows and turn them into one product teams actually use — '
         'from a 150k-line desktop CRM built entirely solo, to field apps, store releases, and Chrome lead tools.',
     aboutParagraphs: [
       'I am a Flutter expert who thinks like a product engineer. I do not hand off half-built modules — '
           'I own architecture, UI/UX, backend, roles, publishing, and the details that make software usable at work. '
-          'Over 4 years I have shipped 20+ apps and tools across CRM, rentals, field services, education, fitness, '
+          'Over 2.5 years I have shipped 20+ apps and tools across CRM, rentals, field services, education, fitness, '
           'healthcare, legal, events, and Chrome extensions.',
       'Digitron CRM is the clearest example: I built the entire enterprise desktop product alone — idle-time and '
           'app-usage tracking, leads and meetings, employee and customer management, attendance, and operations — '
@@ -26,8 +27,8 @@ class PortfolioData {
     ],
     profileImageAsset: 'assets/my pic.webp',
     profileImageUrl: null,
-    yearsAndroid: 1,
-    yearsFlutter: 3,
+    yearsAndroid: 0,
+    yearsFlutter: 2.5,
     resumeUrl: null,
   );
 
@@ -43,27 +44,39 @@ class PortfolioData {
   static const experiences = [
     Experience(
       title: 'Flutter Developer',
-      company: 'Freelance & Contract',
-      period: '2022 – Present',
+      company: 'Digitron LLC (Remote)',
+      period: 'Jun 2024 – Present',
       description:
-          'I take client ideas and ship full products: Flutter apps, desktop CRM, and Chrome lead tools used in real operations.',
+          'Remote Flutter developer shipping production products for Digitron: desktop CRM, field and rental apps, and store releases.',
       highlights: [
-        'Delivered 20+ production apps and tools across multiple industries',
-        'Built Digitron CRM entirely solo — 150k+ lines covering workforce, CRM, and tracking',
-        'Published apps on Google Play Store and Apple App Store',
-        'Shipped Chrome extensions with cloud sync, team workflows, and live dashboards',
+        'Built Digitron CRM entirely solo — 150k+ lines covering workforce, CRM, idle/app-usage tracking, and RBAC',
+        'Delivered NV Car Rentals and R&M Roofing as end-to-end Flutter products',
+        'Shipped Advocate Associates to Google Play, the App Store, and Microsoft Store',
+        'Shipped Chrome lead tools with cloud sync, team workflows, and live dashboards',
+      ],
+    ),
+    Experience(
+      title: 'Flutter Developer',
+      company: 'Center for Advance Solutions (CAS), Bahawalpur',
+      period: 'Nov 2023 – May 2024',
+      description:
+          'Five months owning Flutter products for the institute: LMS, student management, and Play Store apps.',
+      highlights: [
+        'Built CAS LMS — live classes, quizzes, attendance, fees, and multi-role dashboards',
+        'Shipped CAS ELMS (student / institute management) and Invitor to Google Play',
+        'Owned architecture, UI/UX, Firebase, and Zoom API integrations',
       ],
     ),
     Experience(
       title: 'Android Developer',
-      company: 'Previous Role',
-      period: '2021 – 2022',
+      company: 'Center for Advance Solutions (CAS), Bahawalpur',
+      period: 'Jun 2023 – Nov 2023',
       description:
-          'Developed native Android applications using Java and Kotlin.',
+          'Five months building native Android apps in Java and Kotlin before moving the same stack to Flutter.',
       highlights: [
         'Built user-facing features with Material Design',
-        'Worked with SQLite, Retrofit, and Android SDK',
-        'Transitioned to Flutter for cross-platform efficiency',
+        'Worked with SQLite, Retrofit, and the Android SDK',
+        'Moved to Flutter in Nov 2023 for cross-platform delivery at CAS',
       ],
     ),
   ];
@@ -254,6 +267,7 @@ class PortfolioData {
           'Educational institutes were drowning in manual paperwork and disconnected tools. '
           'CAS consolidates student management, live virtual classes via Zoom API, fee tracking, '
           'leave workflows, and performance dashboards into a single enterprise-grade mobile platform.',
+      playStoreUrl: 'https://play.google.com/store/apps/details?id=com.cas.elms&hl=en',
       techStack: ['Flutter', 'Dart', 'Zoom API', 'Firebase', 'State Management', 'Role-Based Access'],
       imageAssets: [
         'assets/CAS LLM/1.webp',
@@ -306,6 +320,10 @@ class PortfolioData {
           'Lawyers were managing consultations manually via phone calls and spreadsheets. '
           'Advocate Associates delivers a professional booking portal with real-time slot management, '
           'payment processing, and an admin revenue dashboard.',
+      playStoreUrl:
+          'https://play.google.com/store/apps/details?id=com.digitronllc.advocateassociates&hl=en',
+      appStoreUrl: 'https://apps.apple.com/us/app/advocate-associates/id6783474694',
+      microsoftStoreUrl: 'https://apps.microsoft.com/detail/9nxb8945wd90?hl=en-US&gl=PK',
       techStack: ['Flutter', 'Firebase', 'Supabase', 'PostgreSQL', 'Payment Gateway', 'Google Auth'],
       imageAssets: [
         'assets/advocate associates/1.webp',
@@ -331,6 +349,7 @@ class PortfolioData {
           'IT institutes were managing student records, leaves, and fees through manual processes. '
           'CAS Student Management centralizes all operations with role-specific dashboards and '
           'dynamic routing so each user sees exactly what they need.',
+      playStoreUrl: 'https://play.google.com/store/apps/details?id=pk.org.cas.ELMS&hl=en',
       techStack: ['Flutter', 'Dart', 'Firebase', 'Role-Based Routing', 'Custom Widgets'],
       imageAssets: [
         'assets/cas elms/1.webp',
@@ -353,6 +372,7 @@ class PortfolioData {
       problemSolved:
           'Paper invitations are costly and untrackable. Invitor lets hosts create custom invitations, '
           'share via WhatsApp, and manage all guests from one dashboard — all with fluid 60fps animations.',
+      playStoreUrl: 'https://play.google.com/store/apps/details?id=pk.org.cas.inviteplus&hl=en',
       techStack: ['Flutter', 'Dart', 'Custom Animations', 'Local Storage', 'Google Play Store'],
       imageAssets: [
         'assets/inviter/1.webp',

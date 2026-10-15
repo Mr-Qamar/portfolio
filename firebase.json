@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "qamar-zaman-portfolio",
     "public": "build/web",
     "ignore": [
       "firebase.json",
@@ -14,11 +15,29 @@
     ],
     "headers": [
       {
-        "source": "**/*.@(js|css|wasm|webp|png|jpg|jpeg|ttf|woff2)",
+        "source": "**",
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "public, max-age=31536000"
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "assets/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      },
+      {
+        "source": "canvaskit/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
           }
         ]
       }

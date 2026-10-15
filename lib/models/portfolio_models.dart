@@ -8,6 +8,7 @@ class Project {
     this.role,
     this.playStoreUrl,
     this.appStoreUrl,
+    this.microsoftStoreUrl,
     this.webUrl,
     this.githubUrl,
     this.imageAsset,
@@ -25,6 +26,7 @@ class Project {
   final String? role;
   final String? playStoreUrl;
   final String? appStoreUrl;
+  final String? microsoftStoreUrl;
   final String? webUrl;
   final String? githubUrl;
   final String? imageAsset;
@@ -118,7 +120,7 @@ class PortfolioProfile {
   final List<String> aboutParagraphs;
   final String? profileImageAsset;
   final String? profileImageUrl;
-  final int yearsAndroid;
-  final int yearsFlutter;
+  final double yearsAndroid;
+  final double yearsFlutter;
   final String? resumeUrl;
 }
